@@ -43,7 +43,7 @@ public enum EngineType: Int {
                 "EvalFile": "nn-1111cefa1111",
                 "EvalFileSmall": "nn-37f18f62d772"
             ].compactMapValues {
-                Bundle.main.url(forResource: $0, withExtension: "nnue")?.path()
+                Bundle.main.url(forResource: $0, withExtension: "nnue")?.path(percentEncoded: false)
             }
 
             return fileOptions.map(EngineCommand.setoption)
@@ -51,7 +51,7 @@ public enum EngineType: Int {
             let fileOptions = [
                 "WeightsFile": "192x15_network"
             ].compactMapValues {
-                Bundle.main.url(forResource: $0, withExtension: nil)?.path()
+                Bundle.main.url(forResource: $0, withExtension: nil)?.path(percentEncoded: false)
             }
 
             return fileOptions.map(EngineCommand.setoption)
